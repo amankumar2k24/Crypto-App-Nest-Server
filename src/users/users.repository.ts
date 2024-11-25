@@ -19,3 +19,11 @@ export class UserRepository {
     return this.user.findOne({ email });
   }
 }
+
+// @InjectModel(User.name):
+// Injects the User model created using the MongooseModule.forFeature method in the UsersModule.
+// Provides access to Mongoose methods (e.g., save(), findOne()).
+
+// Model<User>:
+// This is the Mongoose Model for the User schema.
+// It allows CRUD operations to be performed on the users collection in the MongoDB database.

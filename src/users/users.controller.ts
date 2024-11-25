@@ -14,3 +14,18 @@ export class UsersController {
     return this.userService.createUser(createUserRequest);
   }
 }
+
+// @Controller('users'):
+// This marks the class as a controller and maps its routes to /users.
+// Any HTTP request to /users will be handled here.
+
+// Dependency Injection (private readonly userService: UsersService):
+// The UsersService is injected into the controller to handle the business logic for user-related operations.
+
+// @Post() Method:
+// Maps the HTTP POST request to the createUser method.
+// Expects a request body of type CreateUserRequest (validated using class-validator decorators).
+
+// Logic:
+// Calls the createUser method in UsersService to handle the creation of a user.
+// Returns a response of type UserResponse.

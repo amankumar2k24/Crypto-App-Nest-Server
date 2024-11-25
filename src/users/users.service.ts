@@ -39,3 +39,19 @@ export class UsersService {
     };
   }
 }
+
+// @Injectable():
+// Marks the class as a service that can be injected into other classes.
+
+// Dependency Injection (UserRepository):
+// The UserRepository is injected to interact with the database (MongoDB).
+
+// Business Logic:
+// createUser Method:
+// Accepts CreateUserRequest data.
+// Hashes the password using bcrypt for security.
+// Calls insertOne from the repository to save the user in the database.
+// Formats the result using the buildResponse method.
+
+// buildResponse Method:
+// Converts the User model instance into the response type UserResponse.

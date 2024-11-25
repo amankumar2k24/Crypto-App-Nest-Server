@@ -16,3 +16,13 @@ describe('UsersController', () => {
     expect(controller).toBeDefined();
   });
 });
+
+
+// Purpose:
+// Tests the UsersService to ensure it is defined and can be instantiated properly.
+
+// Test.createTestingModule:
+// Sets up a test module with the UsersService as a provider.
+
+// Basic Test:
+// The test simply checks if the UsersService is defined.
