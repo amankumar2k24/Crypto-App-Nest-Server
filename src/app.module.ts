@@ -7,18 +7,27 @@ import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({isGlobal:true}),
+    ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRootAsync({
-      imports : [ConfigModule],
+      imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>('MONGODB_URI'),
       }),
       inject: [ConfigService],
     }),
-    UsersModule
-    
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
+
+// ConfigModule: Used to load environment variables (e.g., .env file).
+// isGlobal: true: Makes this module globally available across the entire application, so you don't have to import it in every module separately.
+
+// Async Configuration: forRootAsync allows asynchronous configuration, which is useful when using values (e.g., environment variables) loaded at runtime.
+// imports: [ConfigModule]: Ensures ConfigModule is available to load environment variables.
+// useFactory: A function that creates the MongoDB connection configuration dynamically.
+// configService.get<string>('MONGODB_URI'): Fetches the MongoDB connection string from the environment variables.
+// inject: [ConfigService]: Injects ConfigService into the useFactory function, allowing access to environment variables.
